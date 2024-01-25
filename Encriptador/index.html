@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Encriptador Mensajes</title>
+</head>
+<body>
+    <button id="btn-informativo" class="inf-about"> ¿Qué es esto? </button>
+    <form id="crypt">
+        <h1 class="title">Encriptador de Mensajes</h1>
+        <label class="lbl-ingrese-msj" for="msj-crypt">Ingrese Mensaje:</label> 
+        <textarea id="msj-crypt" id="msj-crypt" placeholder="Escribe tu mensaje" ></textarea>
+        <br><br><br>
+        <button id="btn-crypt" type="button"> Encriptar </button>
+        <button id="btn-descrypt" type="button"> Desencriptar </button>
+        <br><br><br>
+        <textarea id="msj-descrypt" placeholder="Esperando opción..." readonly></textarea>
+        <br>
+        <button type="button" id="btn-copy"> Copiar </button>
+    </form>
+
+    <script src="./funciones.js"></script>
+</body>
+</html>

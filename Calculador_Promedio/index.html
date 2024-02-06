@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora de Promedio de Notas</title>
+</head>
+
+<body>
+    <button class="btn-adicion" type="button" onclick="agregarFormulario()">+</button>
+    <div class="container-form" id="contenedor-principal">
+        <form class="form-notas">
+            <h2 class="title-form"> Calculador Promedio Semestre 1 </h2>
+            <div class="container-notas">
+                <div class="container-input">
+                    <label for="nota1">Corte 1</label>
+                    <input type="number" class="nota" id="nota1" placeholder="Nota 1" required>
+                    <input type="number" class="percent" id="percent_nota1" placeholder="Porcentaje" required>
+                </div>
+
+                <div class="container-input">
+                    <label for="nota2">Corte 2</label>
+                    <input type="number" class="nota" id="nota2" placeholder="Nota 2" required>
+                    <input type="number" class="percent" id="percent_nota2" placeholder="Porcentaje" required> 
+                </div>
+
+                <div class="container-input">
+                    <label for="nota3">Corte 3</label>
+                    <input type="number" class="nota" id="nota3" placeholder="Nota 3" required>
+                    <input type="number" class="percent" id="percent_nota3" placeholder="Porcentaje" required>
+                </div>
+                <button id="btn-cal-prom" type="button" onclick="calcularPromedio()">Calcular</button>
+            </div>
+        </form>
+        
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+DROP DATABASE forohub;
+CREATE DATABASE forohub;
+USE forohub;
+
+CREATE TABLE IF NOT EXISTS Users(
+    userId INT PRIMARY KEY AUTO_INCREMENT,
+    user varchar(30) UNIQUE NOT NULL,
+    password varchar(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Topics(
+    topicId INT PRIMARY KEY AUTO_INCREMENT,
+    course varchar(80) NOT NULL,
+    title varchar(80) NOT NULL,
+    description text NOT NULL,
+    userId INT NOT NULL,
+    FOREIGN KEY (userId) REFERENCES Users(userId)
+);
+
+CREATE TABLE IF NOT EXISTS Comments(
+    commentId INT PRIMARY KEY AUTO_INCREMENT,
+    userId INT NOT NULL,
+    topicId INT NOT NULL,
+    comment text NOT NULL
+);
+
+
+INSERT INTO Users (user, password)
+VALUES
+    ('alice@forohub.com', 'alice'),
+    ('bob@forohub.com', 'bob'),
+    ('charlie@forohub.com', 'charlie'),
+    ('david@forohub.com', 'david'),
+    ('eve@forohub.com', 'eve'),
+    ('frank@forohub.com', 'frank'),
+    ('grace@forohub.com', 'grace'),
+    ('hannah@forohub.com', 'hannah'),
+    ('irene@forohub.com', 'irene'),
+    ('jason@forohub.com', 'jason');
+
+INSERT INTO Topics (topicId, course, title, description, userId)
+VALUES
+    (1, 'Programación en Java', 'Introducción a Java', 'Conceptos básicos de programación en Java.', 1),
+    (2, 'Desarrollo web', 'HTML y CSS', 'Creación de páginas web con HTML y CSS.', 2),
+    (3, 'Bases de datos', 'Modelado relacional', 'Diseño de bases de datos relacionales.', 3),
+    (4, 'Python', 'Como iterar una matriz?', 'Hola, alguien me puede decir como iterar una matriz en python??', 1);
+
+INSERT INTO Comments (commentId, userId, topicId, comment)
+VALUES
+    (1, 1, 1, '¡Excelente introducción!'),
+    (2, 2, 1, '¿Dónde puedo encontrar más ejemplos de código en Java?'),
+    (3, 1, 2, 'Me encanta el diseño web.'),
+    (4, 3, 2, '¿Cómo puedo centrar elementos en CSS?'),
+    (5, 2, 3, '¿Cuál es la diferencia entre una clave primaria y una clave foránea?');
+

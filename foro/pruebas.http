@@ -1,0 +1,6 @@
+###Traer usuarios
+GET http://localhost:8080/users/getUsers
+###Traer usuario por id
+GET http://localhost:8080/users/getUserById/3
+###Traer usuarios con tema y comentarios
+GET http://localhost:8080/users/getUsersWithTopicsAndComments

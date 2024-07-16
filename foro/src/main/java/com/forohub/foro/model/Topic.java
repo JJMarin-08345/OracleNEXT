@@ -2,8 +2,10 @@ package com.forohub.foro.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.forohub.foro.dto.CommentDto;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -32,7 +34,7 @@ public class Topic implements Serializable {
     @JoinColumn(name = "userid")
     private User user;
     //Relation with Comment
-    @OneToMany(mappedBy = "topic", cascade= CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "topic", cascade= CascadeType.ALL)
     @JsonIgnore
     private List<Comment> comments;
 
@@ -88,12 +90,29 @@ public class Topic implements Serializable {
         this.user = user;
     }
 
-    public List<Comment> getComments() {
-        return comments;
+    public List<CommentDto> getComments() {
+        return comments.stream().map(comment -> new CommentDto(
+            comment.getTopic().getTitle(),
+            comment.getUser().getUser(),
+            comment.getCommentId(),
+            comment.getComment()
+        )).collect(Collectors.toList());
     }
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public String toString(){
+        return "Topic{" +
+                "topicId=" + topicId +
+                ", course='" + course + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", user=" + user +
+                ", comments=" + comments +
+                '}';
     }
 
 }

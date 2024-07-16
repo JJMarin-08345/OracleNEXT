@@ -16,7 +16,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "commentid")
-    private Integer commentid;
+    private Integer commentId;
     //Relation with Topic
     @ManyToOne()
     @JoinColumn(name = "topicid")
@@ -30,19 +30,19 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(Integer commentid, Topic topic, User user, String comment) {
-        this.commentid = commentid;
+    public Comment(Integer commentId, Topic topic, User user, String comment) {
+        this.commentId = commentId;
         this.topic = topic;
         this.user = user;
         this.comment = comment;
     }
 
-    public Integer getCommentid() {
-        return commentid;
+    public Integer getCommentId() {
+        return commentId;
     }
 
-    public void setCommentid(Integer commentid) {
-        this.commentid = commentid;
+    public void setCommentId(Integer commentId) {
+        this.commentId = commentId;
     }
 
     public Topic getTopic() {

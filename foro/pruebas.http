@@ -4,3 +4,67 @@ GET http://localhost:8080/users/getUsers
 GET http://localhost:8080/users/getUserById/3
 ###Traer usuarios con tema y comentarios
 GET http://localhost:8080/users/getUsersWithTopicsAndComments
+###Traer usuarios con temas
+GET http://localhost:8080/users/getUsersWithTopics
+###Traer usuarios con comentarios
+GET http://localhost:8080/users/getUsersWithComments
+###Traer usuario por id con temas
+GET http://localhost:8080/users/getUserByIdWithTopics/3
+###Traer usuario por id con comentarios
+GET http://localhost:8080/users/getUserByIdWithComments/6
+
+###Crear usuario
+POST http://localhost:8080/users/createUser
+Content-Type: application/json
+
+{
+    "user": "daryramirez@forohub.com",
+    "password": "daryramirez"
+}
+
+###Actualizar usuario
+PUT http://localhost:8080/users/updateUser/13
+Content-Type: application/json
+
+{
+    "user": "daryramirez@forohub.com",
+    "password": "daryramirez"
+}
+
+###Eliminar usuario
+DELETE http://localhost:8080/users/deleteUser/12
+
+
+### TOPICS
+###Traer topics
+GET http://localhost:8080/topics/getTopics
+###Traer topic por id
+GET http://localhost:8080/topics/getTopicById/7
+###Crear un topico
+POST http://localhost:8080/topics/createTopic/12
+Content-Type: application/json
+
+{
+    "course": "NodeJs Avanzado",
+    "title": "¿Cómo puedo enviar cookies en una petición HTTP?",
+    "description": "Tengo dudas sobre cómo enviar cookies en una petición HTTP, ¿alguien me puede ayudar?"
+}
+###Actualizar un topico
+PUT http://localhost:8080/topics/updateTopic/1
+Content-Type: application/json
+
+{
+    "topicId": 7,
+    "course": "NodeJs Avanzado",
+    "title": "¿Cómo puedo enviar cookies en una petición HTTP?",
+    "description": "Buen dia, alguien sabe cómo enviar cookies en una petición HTTP, ¿alguien me puede ayudar?"
+}
+
+###Eliminar un topico
+#El parametro de la url es el id del usuario
+DELETE http://localhost:8080/topics/deleteTopic/1
+Content-Type: application/json
+
+{
+    "topicId": 1
+}

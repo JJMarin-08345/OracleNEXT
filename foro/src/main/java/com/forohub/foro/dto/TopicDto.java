@@ -4,6 +4,7 @@ import java.util.List;
 
 public record TopicDto(
     Integer topicId,
+    String openByUser,
     String course,
     String title,
     String description,

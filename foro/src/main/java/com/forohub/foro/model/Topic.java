@@ -92,8 +92,8 @@ public class Topic implements Serializable {
 
     public List<CommentDto> getComments() {
         return comments.stream().map(comment -> new CommentDto(
-            comment.getTopic().getTitle(),
             comment.getUser().getUser(),
+            comment.getTopic().getTitle(),
             comment.getCommentId(),
             comment.getComment()
         )).collect(Collectors.toList());

@@ -35,7 +35,7 @@ public class UserService {
     //Obtener un usuario por su id
     public UserDto getUserById(Integer id) {
         User userToTrans = userRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+                .orElseThrow(() -> new EntityNotFoundException("EL USUARIO NO EXISTE"));
 
         UserDto user = new UserDto(
                 userToTrans.getUserId(),
@@ -94,7 +94,7 @@ public class UserService {
     //Obtener un usuario por su id con sus temas
     public UserDto getUserByIdWithTopics(Integer id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+                .orElseThrow(() -> new EntityNotFoundException("***EL USUARIO NO EXISTE***"));
 
         if (user.getTopics().isEmpty()) {
             System.out.println("ESTE USUARIO NO TIENE TEMAS ABIERTOS");
@@ -114,7 +114,7 @@ public class UserService {
     //Obtener un usuario por su id con sus comentarios
     public UserDto getUserByIdWithComments(Integer id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+                .orElseThrow(() -> new EntityNotFoundException("***EL USUARIO NO EXISTE***"));
 
         if (user.getComments().isEmpty()) {
             System.out.println("ESTE USUARIO NO HA REALIZADO NINGUN COMENTARIO");

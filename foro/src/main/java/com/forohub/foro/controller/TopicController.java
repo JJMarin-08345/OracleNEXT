@@ -1,8 +1,10 @@
 package com.forohub.foro.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.forohub.foro.dto.TopicDto;
 import com.forohub.foro.model.Topic;
 import com.forohub.foro.service.TopicService;
+
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 @RestController
 @RequestMapping("/topics")
@@ -38,10 +43,26 @@ public class TopicController {
     }
 
     //Create topic
-    @PostMapping("/createTopic")
-    public ResponseEntity<Topic> createTopic(@RequestBody Topic topic) {
-        Topic newTopic = topicService.createTopic(topic);
+    @PostMapping("/createTopic/{userId}")
+    public ResponseEntity<Topic> createTopic(@PathVariable Integer userId, @RequestBody Topic topic) {
+        Topic newTopic = topicService.createTopic(userId, topic);
         return ResponseEntity.ok(newTopic);
+    }
+
+    //Update topic
+    @PutMapping("updateTopic/{userId}")
+    public ResponseEntity<Topic> updateTopic(@PathVariable Integer userId, @RequestBody Topic topic) {
+        //TODO: process PUT request
+        Topic updatedTopic = topicService.updateTopic(userId, topic);
+        return ResponseEntity.ok(updatedTopic);
+    }
+
+    //Delete topic
+    @DeleteMapping("/deleteTopic/{userId}")
+    public String deleteUser(@PathVariable Integer userId, @RequestBody Map<String, Integer> jsonTopic) {
+        Integer topicId = jsonTopic.get("topicId");
+        System.out.println("Deleting topic with id: " + topicId);
+        return topicService.deleteTopic(userId, topicId);
     }
 
 }

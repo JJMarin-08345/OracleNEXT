@@ -80,6 +80,7 @@ public class User implements Serializable {
     public List<TopicDto> getTopics() {
         return topics.stream().map(topic -> new TopicDto(
                 topic.getTopicId(),
+                topic.getUser().getUser(),
                 topic.getCourse(),
                 topic.getTitle(),
                 topic.getDescription(),
